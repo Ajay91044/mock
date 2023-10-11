@@ -13,7 +13,7 @@ let option4 = document.getElementById("option1")
 
 function store() {
     localStorage.clear()
-    if (name.value.match(/^[A-Z]/)) {
+    if (/[A-Z]+/.test(name.value)) {
         document.querySelector("p").innerText = ""
         localStorage.setItem("name", `${name.value}`)
 
@@ -22,7 +22,7 @@ function store() {
         document.querySelector("p").innerText = "first letter should be Capital"
     }
 
-    if (password.value.match(/^[A-Z]/)) {
+    if (password.value.match(/^[A-Z]+/g)) {
         document.querySelector("h3").innerText = ""
         localStorage.setItem("password", `${password.value}`)
 
@@ -30,15 +30,17 @@ function store() {
     else {
         document.querySelector("h3").innerText = "password should contain atleast 1 Uc,1 lc ,1 digit"
     }
-    if (email.value.match(/[0-9/@/]/)) {
+    if (/[@]/.test(email.value)) {
         document.querySelector("h4").innerText = ""
         localStorage.setItem("email", `${email.value}`)
 
     }
     else {
-        document.querySelector("h4").innerText = "Atleast 1 digit"
+        document.querySelector("h4").innerText = "[Number,@]"
     }
-    if (phone.value.match(/[0-9]+/)) {
+    if (/^[0-9]+$/g.test(phone.value))
+     {
+        console.log(/^[0-9]+$/g.test(phone.value));
         document.querySelector("h2").innerText = ""
         localStorage.setItem("phone", `${phone.value}`)
 
@@ -51,6 +53,7 @@ function store() {
 
 
 }
+
 
 let username = document.getElementById("username")
 let loginpassword = document.getElementById("loginpassword")
@@ -65,7 +68,7 @@ function check() {
     let remoteName = localStorage.getItem("name")
     let remotePassword = localStorage.getItem("password")
 
-    if (username.value.match(/^[A-Z]/)) {
+    if (username.value.match(/^[A-Z]/) ) {
         document.querySelector("h5").innerText = ""
         if (loginpassword.value.match(/^[A-Z]/)) 
         {
@@ -99,10 +102,11 @@ function check() {
 
 }
 
+api()
 
-
+let moviesearch=document.getElementById("moviesearch")
 async function api() {
-    let response = await fetch("http://www.omdbapi.com/?i=tt3896198&apikey=8f9acc2")
+    let response = await fetch(`http://www.omdbapi.com/?t=${moviesearch.value}&apikey=8f9acc2`)
     let data = await response.json()
 
 

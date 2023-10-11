@@ -52,4 +52,13 @@ button{
 #movies{
     border: 2px solid red;
     width: 50%;
+    margin:5px auto;
+    background-color: rgb(116, 113, 90);
+
+    
+}
+
+
+#movies img{
+    height: 200px;
 }
