@@ -1,0 +1,55 @@
+#buttons
+{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+}
+button{
+    
+    height: 40px;
+    width: 80px;
+}
+
+#Signup
+{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+}
+#Signup input{
+    width: 233px;
+    height: 30px;
+}
+#login
+{
+    margin-top: 10px;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+}
+#login input{
+    width: 233px;
+    height: 30px;
+}
+
+
+
+#div1{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+#div2{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+
+#movies{
+    border: 2px solid red;
+    width: 50%;
+}
